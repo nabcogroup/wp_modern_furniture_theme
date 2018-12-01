@@ -1,17 +1,46 @@
 
 
 .mf-theme {
+    
     .page-content {
         min-height: 650px;
-        padding: 25px 0;
-    }
-    
-    .body-content {
+        padding-top: 25px;
+        padding-bottom: 25px;
         p {
             line-height: 1.9rem;
             text-align: justify;
             
         }
+
+
+    }
+
+    .entry-title {
+        padding-bottom: 15px;
+        font-size: 1.2rem;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 25px 0;
+        border-bottom: 1px solid map-get($theme-colors, "light" );
+
+        @include media-breakpoint-up(sm) {
+            font-size: 1.8rem;
+        }
+        
+        &:after {
+            content: '';
+            position: absolute;
+            background: map-get($theme-colors,"danger");
+            bottom: -2px;
+            left:0;
+            right: 0;
+            width: 10%;
+            margin: auto;
+            height: 5px;
+        }
+
+       
     }
 
 }

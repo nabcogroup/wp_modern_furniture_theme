@@ -8,12 +8,6 @@
 class ModernFurniture_Theme {
 
 
-    public function __construct() {
-
-        add_action("modfurn_content_top","woocommerce_breadcrumb", 10);
-        
-    }
-
     public function skip_link() {
         echo apply_filters("skip-link", 
             sprintf("<a class='skip-link screen-reader-text' href='#content'>%s</a>", esc_html( 'Skip to content', MF_THEME_DOMAIN )));

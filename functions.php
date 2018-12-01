@@ -13,7 +13,7 @@
 
 
 require get_template_directory() . '/inc/class/class-theme-dev-customizer.php';
-
+require get_template_directory() . '/inc/class/class-abstract-hook.php';
 require get_template_directory() . '/inc/theme/class-theme-sidebar.php';
 require get_template_directory() . '/inc/theme/class-theme-setup.php';
 

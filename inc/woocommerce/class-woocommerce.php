@@ -1,24 +1,33 @@
 <?php
 
 
-class ModernFurniture_WooCommerce {
+class ModernFurniture_WooCommerce extends Theme_Hook {
 
     public static $instance;
 
-    public static function createInstance() {
-
-        if(is_null(static::$instance )) {
-            static::$instance = new static();
-        }
-
-        return static::$instance;
-    }
-
     public function __construct() {
-        
-        add_action( 'after_setup_theme', array($this,'woocommerce_setup'));
-        add_action( 'wp_enqueue_scripts', array($this,'woocommerce_scripts') );
 
+        $this->actions = array(
+            'after_setup_theme' => 'woocommerce_setup',
+            'wp_enqueue_scripts' => 'woocommerce_scripts',
+            'modfurn_content_top' => array('fn' => 'woocommerce_breadcrumb', 'pos' => 10 ),
+        );
+
+        $this->filters = array(
+            'body_class'                                => 'woocommerce_active_body_class',
+            'loop_shop_per_page'                        => 'woocommerce_products_per_page',
+            'woocommerce_product_thumbnails_columns'    => 'woocommerce_thumbnail_columns',
+            'loop_shop_columns'                         =>  'woocommerce_loop_columns',
+            'woocommerce_output_related_products_args'  =>  'woocommerce_related_products_args',
+            'woocommerce_breadcrumb_defaults'           =>  'woocommerce_breadcrumb_defaults'
+        );
+
+        parent::__construct();
+        
+        // add_action( 'after_setup_theme', array($this,'woocommerce_setup'));
+        // add_action( 'wp_enqueue_scripts', array($this,'woocommerce_scripts') );
+
+        // add_action("modfurn_content_top","woocommerce_breadcrumb", 10);
         
         /**
          * Disable the default WooCommerce stylesheet.
@@ -30,12 +39,14 @@ class ModernFurniture_WooCommerce {
          */
         //add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
-        add_filter( 'body_class', array($this,'woocommerce_active_body_class'));
-        add_filter( 'loop_shop_per_page', array($this,'woocommerce_products_per_page') );
-        add_filter( 'woocommerce_product_thumbnails_columns', array($this,'woocommerce_thumbnail_columns') );
-        add_filter( 'loop_shop_columns', array($this,'woocommerce_loop_columns') );
-        add_filter( 'woocommerce_output_related_products_args', array($this,'woocommerce_related_products_args') );
+        // add_filter( 'body_class', array($this,'woocommerce_active_body_class'));
+        // add_filter( 'loop_shop_per_page', array($this,'woocommerce_products_per_page') );
+        // add_filter( 'woocommerce_product_thumbnails_columns', array($this,'woocommerce_thumbnail_columns') );
+        // add_filter( 'loop_shop_columns', array($this,'woocommerce_loop_columns') );
+        // add_filter( 'woocommerce_output_related_products_args', array($this,'woocommerce_related_products_args') );
 
+        //  //change data filter
+        //  add_filter( 'woocommerce_breadcrumb_defaults', array($this,'woocommerce_breadcrumb') );
     }
     
     /**
@@ -47,10 +58,22 @@ class ModernFurniture_WooCommerce {
      * @return void
      */
     public function woocommerce_setup() {
+
         add_theme_support( 'woocommerce' );
         add_theme_support( 'wc-product-gallery-zoom' );
         add_theme_support( 'wc-product-gallery-lightbox' );
         add_theme_support( 'wc-product-gallery-slider' );
+
+
+        /**
+        * Disable the default WooCommerce stylesheet.
+        *
+        * Removing the default WooCommerce stylesheet and enqueing your own will
+        * protect you during WooCommerce core updates.
+        *
+        * @link https://docs.woocommerce.com/document/disable-the-default-stylesheet/
+        */
+        add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
     }
 
     
@@ -138,8 +161,24 @@ class ModernFurniture_WooCommerce {
         return $args;
     }
 
+      /**
+     * 
+     * hooked: woocommerce_breadcrumb
+     *  - change woocommerce breadcrumb
+     */
+    public function woocommerce_breadcrumb_defaults() {
+        return array(
+            'delimiter'   => ' » ',
+            'wrap_before' => '<nav class="woocommerce-breadcrumb" itemprop="breadcrumb"><div class="container"><i class="fas fa-home"></i> ',
+            'wrap_after'  => '</div></nav>',
+            'before'      => '',
+            'after'       => '',
+            'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
+        );  
+
+    }
+
     
 }
 
-
-return ModernFurniture_WooCommerce::createInstance();
+return new ModernFurniture_WooCommerce();

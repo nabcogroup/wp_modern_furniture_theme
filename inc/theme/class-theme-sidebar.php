@@ -2,7 +2,13 @@
 
 
 class ModernFurniture_SidebarRegister {
-    
+	
+	public function __construct() {
+
+		add_action('widgets_init', array($this,'widgets_init'));
+	}
+	
+
     public function widgets_init() {
         
         register_sidebar( array(
@@ -64,7 +70,6 @@ class ModernFurniture_SidebarRegister {
 			return $widget_classes;
 		endif;
     }
-
-
-
 }
+
+return new ModernFurniture_SidebarRegister();

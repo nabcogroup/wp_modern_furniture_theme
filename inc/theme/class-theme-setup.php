@@ -4,22 +4,35 @@
 
 if(!class_exists('ModernFurniture')) {
 
-    class ModernFurniture {
+    class ModernFurniture extends Theme_Hook {
 
+        public function __construct() {
 
-        public function __construct(ModernFurniture_SidebarRegister $sidebar) {
+            $this->actions = array(
+                'after_setup_theme' => array(
+                    array('fn' => array($this,'theme_setup')),
+                    array('fn' => array($this,'custom_header_setup')),
+                    array('fn' => array($this,'content_width'), 'pos' => 0),
+                ),
+                'wp_enqueue_scripts'    =>  'enqueue',
+                'wp_head'               =>  'pingback_header',
+            );
 
+            
 
-            add_action('after_setup_theme',array($this,'theme_setup'));
-            add_action( 'after_setup_theme', array($this,'custom_header_setup') );
-            add_action( 'after_setup_theme', array($this,'content_width'), 0 );
+            // add_action('after_setup_theme',array($this,'theme_setup'));
+            // add_action( 'after_setup_theme', array($this,'custom_header_setup') );
+            // add_action( 'after_setup_theme', array($this,'content_width'), 0 );
 
-            add_action( 'wp_enqueue_scripts', array($this,'enqueue') );
+            // add_action( 'wp_enqueue_scripts', array($this,'enqueue') );
+            
+            // add_action( 'wp_head', array($this,'pingback_header') );
+            
+            // add_action( 'widgets_init', array($sidebar, 'widgets_init') );
             
             add_filter( 'body_class',array($this,'body_classes'));
-            add_action( 'wp_head', array($this,'pingback_header') );
-            
-            add_action( 'widgets_init', array($sidebar, 'widgets_init') );
+
+            parent::__construct();
         }
 
         public function theme_setup() {
@@ -224,4 +237,4 @@ if(!class_exists('ModernFurniture')) {
 
 }
 
-return new ModernFurniture(new ModernFurniture_SidebarRegister());
+return new ModernFurniture();

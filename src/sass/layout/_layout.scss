@@ -1,0 +1,20 @@
+
+
+.mf-theme {
+    .page-content {
+        min-height: 650px;
+        padding: 25px 0;
+    }
+    
+    .body-content {
+        p {
+            line-height: 1.9rem;
+            text-align: justify;
+            
+        }
+    }
+
+}
+
+@import "footer";
+@import "section";

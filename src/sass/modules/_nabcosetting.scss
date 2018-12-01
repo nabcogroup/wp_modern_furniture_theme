@@ -1,0 +1,33 @@
+.nabcosetting-active {
+    .nb-compact-address {
+        font-size: $font__small;
+        margin-bottom: 10px;
+        abbr {
+            display:block;
+            text-decoration: none !important;
+            border-bottom: none !important;
+            padding:0;
+            margin: 0;
+
+        }
+    }
+
+    ul.nb-social-icons {
+        list-style:none;
+        display: block;
+        padding: 0;
+        margin: 0;
+        li {
+            float: left;
+            a {
+                display: block;
+                padding: 0 10px;
+            }
+        }
+        &::after {
+            @include clearfix();
+        }
+    }
+
+    
+}

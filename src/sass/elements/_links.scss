@@ -1,0 +1,16 @@
+
+a { 
+    color:#69686c; 
+    text-decoration: none;
+    @include transition(all 0.3s ease 0s);
+}
+
+a:hover {
+    text-decoration:none;
+    color:map-get($theme-colors, "orange");
+}
+a:active, a:hover, a:focus {
+    outline: 0 none;
+}
+
+:focus{ outline:none; }

@@ -1,0 +1,165 @@
+
+
+/*----------------------------------------*/
+/* Slider
+/*----------------------------------------*/
+ .video-wrapper {
+
+    width: 100%;
+    background: gray;
+
+    height: 1000px;
+    @include media-breakpoint-up(sm) {
+        height: 650px;
+    }
+}
+
+.ns-slider-presentation {
+    
+    position: relative;
+    width: 100%;
+    height: 650px;
+
+    @include media-breakpoint-up(sm) {
+        height: 650px;
+    }
+
+    .videoContainer__video {
+        //@include transform(translatex(-150px));
+        position: relative;
+        height: 650px;
+        top: -130px;
+        width:100%;
+        object-fit: cover;
+        object-position: 60% 0;
+        @include media-breakpoint-up(sm) {
+            width: 100%;
+            height: 100%;
+            object-position: 50% 50%;
+        }
+    }
+
+    .title-wrapper {
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 3;
+
+        
+        .ns-shadow-skew {
+            position: absolute;
+            height: 100%;
+            width:100%;
+            top:0;
+            background: rgba($color: #fff, $alpha: 0.6);
+            z-index: 1;
+            
+            @include media-breakpoint-up(sm) { 
+                @include transform(skewX(-20deg));
+                left: 22%;
+                margin: auto;
+                width: 50%;
+            }
+        }
+        
+        .ns-title-border,
+        .ns-shop-button {
+            text-align: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 2;
+            color: map-get($theme-colors , "secondary" );
+            text-transform: uppercase;
+            font-family: 0.9rem;
+        }
+
+        .ns-title-border
+         {
+            top: 60px;
+            padding: 10px 0;
+           
+            &::after {
+                content:"";
+                height: 1px;
+                width: 40%;
+                position: absolute;
+                left:0;
+                right: 0;
+                margin: auto;
+                bottom:0;
+                border: 1px solid map-get($theme-colors, "warning");
+            }
+            &::before {
+                content:"";
+                height: 1px;
+                width: 40%;
+                position: absolute;
+                left:0;
+                right: 0;
+                top: 0;
+                margin: auto;
+                border: 1px solid map-get($theme-colors, "warning");
+            }
+            .ns-title-header {
+                font-size: 3rem;
+                position:relative;
+                text-shadow: 1px 1px 5px map-get($theme-colors, "secondary");
+                color: map-get($theme-colors, "dark" );
+                @include nb-margin-padding();
+                @include media-breakpoint-up(sm) {
+                    font-size: 5.3rem;
+                }
+            }
+    
+            .ns-description-header {
+                position:relative;
+                font-size: 2rem;
+                @include nb-margin-padding();
+                text-shadow: 1px 1px 5px map-get($theme-colors, "secondary");
+                color: map-get($theme-colors, "dark" );
+                @include media-breakpoint-up(sm) {
+                    font-size: 3.5rem;
+                  
+                }
+            }
+        }
+        
+
+        .ns-shop-button {
+            display: block;
+            padding: 15px 0;
+            top: 220px;
+            width: 120px;
+            background-color: map-get($theme-colors, "info" );
+            color: map-get($theme-colors, "light" );
+            font-weight: 900;
+            text-decoration: none;
+            text-align: center;
+            @include transition(all 0.5s ease-in-out);
+            font-size: 0.7rem;
+            position: relative;
+            
+
+            @include media-breakpoint-up(sm) {
+                top: 280px;
+                width: 180px;
+                letter-spacing: 0.4rem;
+            }
+
+            &:hover {
+                background-color: map-get($theme-colors, "light" );
+                color: map-get($theme-colors, "dark" );
+                @include transition(all 0.5s ease-in-out);
+            }
+
+          
+
+        }
+    }
+}

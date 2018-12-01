@@ -1,0 +1,31 @@
+.no-display { display:none; }
+.no-margin { margin:0 !important; }
+.no-padding { padding:0 !important; }
+
+.area-padding {margin-top: 30px}
+
+
+/* Utilities */
+.section-padding {padding: 50px 0}
+.section-top-padding {padding-top: 50px}
+.section-bottom-padding {padding-bottom: 50px}
+
+/*--------------------------------------------*/
+/*  26. Scroll Up Start
+/*--------------------------------------------*/
+#scrollUp {
+    background: #232323 none repeat scroll 0 0;
+    border: 1px solid #ffffff;
+    bottom: 35px;
+    color: #ffffff;
+    right: 12px;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    position: fixed;
+    text-align: center;
+    transition: all 4ms linear 0s;
+    width: 40px;
+    z-index: 9999;
+}
+#scrollUp:hover {background: #e60000 none repeat scroll 0 0}

@@ -1,0 +1,92 @@
+//Footer
+.mf-theme {
+    .site-footer {
+        min-height: 300px;
+        width: 100%;
+        background-color: #262728;
+        border-bottom: 1px solid #575758;
+        border-top: 1px solid #575758;
+        color: #ddd;
+
+        .single-widget {
+            overflow: hidden;
+    
+            .widget-title {
+                margin-bottom: 20px;
+    
+                color: #ffffff;
+                font-size: 16px;
+                font-weight: bold;
+                text-transform: uppercase;
+    
+                padding-bottom: 15px;
+                position: relative;
+    
+                &::after {
+                    position: absolute;
+                    content: "";
+                    left: 0px;
+                    bottom: 0px;
+                    width: 100%;
+                    max-width: 250px;
+                    border-bottom: 1px solid #4c4c4c;
+                    height: 3px;
+                    z-index: 99;
+                }
+    
+                &::before {
+                    position: absolute;
+                    content: "";
+                    left: 0px;
+                    bottom: 0px;
+                    width: 100%;
+                    max-width: 60px;
+                    border-bottom: 1px solid #e60000;
+                    height: 3px;
+                    z-index: 999;
+                }
+            }
+    
+        }
+
+        .footer-widget-list {
+            ul {
+                list-style: none;
+                margin:0;
+                padding:0;
+                li {
+                    line-height: 25px;
+                    overflow: hidden;
+                    text-transform: capitalize;
+                }
+    
+                li a {
+                    color: #ddd;
+                    font-size: 0.8rem;
+                }
+    
+                li a:hover,
+                ul.social-link a:hover i,
+                .footer li a:hover {
+                    color: #e60000;
+                }
+            }
+                
+        }
+        
+    }
+    
+    .footer-bottom {
+        background: map-get($theme-colors, "dark");
+        padding: 5px 0;
+        font-size: 0.9rem;
+        border-top: 1px solid map-get($theme-colors, "light");
+    }
+
+    /*----------------------------------------*/
+    /*  9. Footer Widget Area
+    /*----------------------------------------*/
+    .footer-widget-area {}
+}
+
+

@@ -1,0 +1,91 @@
+
+
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+@mixin awesome-icon($is-font-weight:false,$absolute:true) {
+	@if $is-font-weight {
+		font-weight: bold;
+	}
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "FontAwesome";
+	@if $absolute {
+		position: absolute;
+	}
+}
+
+//effect
+@mixin transform($tran...) {
+    -webkit-transform: $tran;
+    -moz-transform: $tran;
+    -ms-transform: $tran;
+    -o-transform: $tran;
+    transform: $tran;
+}
+
+
+//position
+@mixin nb-top-left($top:0,$left:0) {
+    top: $top;
+    left: $left;
+    position: absolute;
+}
+
+@mixin nb-margin-padding($margin:0,$padding:0) {
+    margin: $margin;
+    padding: $padding;
+}
+
+@mixin nb-width-height($width:100%,$height:100%) {
+    width: $width;
+    height: $height;
+}
+
+
+@mixin fun-animation($name, $duration : 1s,$timing: ease,$count: 1,$fill: forwards) {
+    
+	animation-name: $name;
+	animation-duration:$duration;
+	animation-iteration-count: $count;
+	animation-timing-function: $timing;
+	animation-fill-mode: $fill;
+	-webkit-animation-name: $name;
+	-webkit-animation-duration:$duration;
+	animation-iteration-count: $count;
+	animation-timing-function: $timing;
+	animation-fill-mode: $fill;
+	-moz-animation-name: $name;
+	-moz-animation-duration:$duration;
+	animation-iteration-count: $count;
+	animation-timing-function: $timing;
+	animation-fill-mode: $fill;
+  }

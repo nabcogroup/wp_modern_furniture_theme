@@ -25,6 +25,7 @@ $page_sidebar = get_theme_mod('nabcofurniture_theme_page_layout', '' );
 	<?php if(have_posts()) : ?>
 		<?php while(have_posts()) : the_post(); ?>
 			<div class="col-md-12">
+				<?php echo get_the_post_thumbnail( get_the_ID(), 'thumbnail', array( 'class' => 'post-featured-image' ) ); ?>
 				<?php the_title('<h1 class="entry-title blog-post-title">','</h1>') ?>
 			</div>
 			<div class="col-md-12">

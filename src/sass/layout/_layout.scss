@@ -9,13 +9,13 @@
         p {
             line-height: 1.9rem;
             text-align: justify;
-            
         }
 
 
     }
 
     .entry-title {
+
         padding-bottom: 15px;
         font-size: 1.2rem;
         position: relative;
@@ -39,8 +39,34 @@
             margin: auto;
             height: 5px;
         }
+    }
 
-       
+
+    
+    
+    .content-split-columns {
+        .block-column {
+            border: 1px solid #e4e2e2;
+            background: map-get($theme-colors, "info" );
+        }
+        .sub-title-header {
+            padding: 5px 3px;
+            border-bottom: 1px solid #b3b0b0;
+            color: #fff;
+        }
+
+        .content-body {
+            padding: 5px;
+            color: #fff;
+        }
+    }
+
+    .post-featured-image {
+        width:100%;
+        height: 140px;
+        @include media-breakpoint-up(sm) {
+            height: 340px;
+        }
     }
 
 }

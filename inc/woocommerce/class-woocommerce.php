@@ -141,7 +141,7 @@ class ModernFurniture_WooCommerce extends Theme_Hook {
      * @return integer products per row.
      */
     public function woocommerce_loop_columns() {
-        return 3;
+        return 4;
     }
 
     

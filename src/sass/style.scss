@@ -50,9 +50,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 
 @import "bootstrap/scss/bootstrap";
-@import "fontawesome/font-awesome"; // <------- Font Awesome Icon font
 	
+
 @import "variables-site/variables-site";
+
 
 @import "mixins/mixins";
 
@@ -61,20 +62,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 Elements
 */
 @import "elements/elements";
-
-/** 
-Typography
-*/
-@import "typography/typography";
-
-
-
-
-/** 
-Navigation
-*/
-@import "navigation/navigation";
-
 
 /** 
 Footer
@@ -87,7 +74,4 @@ Modules
 @import "modules/modules";
 
 
-// /**
-//  * Woocommerce Products
-//  */
-@import "shop/products";
+

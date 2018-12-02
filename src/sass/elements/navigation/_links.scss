@@ -1,16 +1,21 @@
 a {
 	color: map-get($theme-colors , "warning");
+	text-decoration: none !important;
+	
 	&:visited {
 		color: map-get($theme-colors , "warning");
 	}
+	
 	&:hover,
 	&:focus,
 	&:active {
-		color: map-get($theme-colors , "warning");
+		color: map-get($theme-colors , "danger");
 	}
+	
 	&:focus {
 		outline: thin dotted;
 	}
+	
 	&:hover,
 	&:active {
 		outline: 0;

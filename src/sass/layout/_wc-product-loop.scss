@@ -1,0 +1,160 @@
+.mf-theme {
+
+    .woocommerce-products-header__title {
+        padding-bottom: 15px;
+        font-size: 1.2rem;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 25px 0;
+        border-bottom: 1px solid map-get($theme-colors, "light" );
+
+        @include media-breakpoint-up(sm) {
+            font-size: 1.8rem;
+        }
+        
+        &:after {
+            content: '';
+            position: absolute;
+            background: map-get($theme-colors,"danger");
+            bottom: -2px;
+            left:0;
+            right: 0;
+            width: 10%;
+            margin: auto;
+            height: 5px;
+        }
+    }
+
+
+
+
+    .wc-product-multi-search {
+        border: 1px solid #d4d4d4;
+        
+        &.search-container {
+            padding: 15px 5px;
+        }
+    }
+
+    .wc-site-main {
+
+        .column-ordering-row {
+            @include make-row();
+            border-bottom: 1px solid #d4d4d4;
+            padding: 0 30px;
+
+            .woocommerce-result-count,
+            .woocommerce-ordering {
+                @include make-col-ready();
+                padding: 10px 0;
+                margin-bottom: 0;
+            }
+
+            .woocommerce-result-count {
+                
+                @include media-breakpoint-up(sm) {
+                    @include make-col(8);
+                }
+            }
+
+            .woocommerce-ordering {
+                text-align: right;
+                @include media-breakpoint-up(sm) {
+                    @include make-col(4);
+                }
+            }
+        }
+
+        .products {
+            @include make-row();
+            width:100%;
+            padding: 15px 0;
+
+            .product {
+               
+                .woocommerce-loop-product__title { font-size: 1rem;}
+
+                .wc-product-container {
+                    border: 1px solid #dcdee3;
+                    //box-shadow: 3px 2px 14px -1px rgba(0,0,0,0.75);
+                    position:relative;
+                    margin-bottom: 15px;
+                }
+                
+                .onsale {
+                    position: absolute;
+                    background: map-get($theme-colors, "danger" );
+                    right: 0;
+                    top: 0;
+                    padding: 5px;
+                    color: #fff;
+                    font-size: 0.8rem;
+                }
+
+                .price {
+                    display: inline-block;
+                    width: 100%;
+                    text-align: center;
+                    font-weight: 700;
+                }
+                
+                img {
+                    width:100%;
+                    height: 220px;
+                }
+
+                .wc-product-body {
+                    padding: 5px;
+                    position: relative;
+
+                    h2 { 
+                        font-size: 0.8rem; 
+                        text-align: center;
+                        
+                    }
+                    
+                    .woocommerce-LoopProduct-link {
+                        padding: 5px;
+                        border: 1px solid #dcdee3;
+                        &.woocommerce-loop-product__link {
+                            color: rgba(0,0,0,0.45);
+                            //box-shadow: 3px 2px 4px -2px rgba(0,0,0,0.35);
+                            background: map-get($theme-colors, "light" );
+                            
+                        }
+                    }
+
+                    ul.wc-product-nav-set {
+                        list-style: none;
+                        display: inline-block;
+                        margin:0;
+                        margin-bottom: 15px;
+                        padding:0;
+                        width: 100%;
+                        text-align: right;
+                        li {
+                            padding: 5px 0;
+                        }
+                    }
+                }
+
+
+
+            }
+            
+            @for $i from 1 through 6 {
+                &.columns-#{$i} {
+                    .product {
+                        @include make-col-ready();
+                        @include media-breakpoint-up(sm) {
+                            @include  make-col(  12 / $i );
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+}
